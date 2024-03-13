@@ -27,6 +27,7 @@ export const cartReducer = (state = initialState, action) => {
                 error: null
             };
         case GET_CART_SUCCESS:
+            console.log("cart", action.payload)
             return {
                 ...state,
                 cartItems: action.payload.cartItems,
@@ -49,17 +50,13 @@ export const cartReducer = (state = initialState, action) => {
         case REMOVE_CART_ITEM_SUCCESS:
             return {
                 ...state,
-                cartItems: state.cartItems.filter(
-                    (item) => item._id !== action.payload
-                ),
+                deleteCartItem: action.payload,
                 loading: false,
             };
         case UPDATE_CART_ITEM_SUCCESS:
             return {
                 ...state,
-                cartItems: state.cartItems.map((item) =>
-                    item._id === action.payload._id ? action.payload : item
-                ),
+                updateCartItem: action.payload,
                 loading: false,
             };
         case REMOVE_CART_ITEM_FAILURE:

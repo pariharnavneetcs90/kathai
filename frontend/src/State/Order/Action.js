@@ -8,7 +8,7 @@ import {
     GET_ORDER_BY_ID_SUCCESS,
 
 } from "./ActionType";
-import { api } from "../../../config/api";
+import { api } from "../../config/apiConfig";
 
 export const createOrder = (reqData) => async (dispatch) => {
     dispatch({ type: CREATE_ORDER_REQUEST });

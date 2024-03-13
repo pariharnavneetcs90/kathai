@@ -1,6 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { removeCartItem } from '../../../State/Cart/Action';
+import { Button } from '@mui/material';
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
+    const dispatch = useDispatch();
+
+    const handelRemoveCartItem = () => {
+        console.log("hello", item);
+        dispatch(removeCartItem(item._id))
+    }
     return (
         <div className='p-5 shadow-lg border rounded-md'>
 
@@ -8,18 +17,18 @@ const CartItem = () => {
 
                 <div className='w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]'>
                     <img className='w-full h-full object-cover object-top'
-                        src='https://artwithmanasi.com/cdn/shop/products/unisex-premium-t-shirt-black-front-608c2276bc605_1024x1024@2x.jpg?v=1619796610' alt='' />
+                        src={item?.product?.imageUrl} alt='' />
                 </div>
 
                 <div className='ml-5 space-y-1'>
 
-                    <p className='font-semibold'>Cotten shirt</p>
-                    <p className='opacity-70'>Size:L,white</p>
-
+                    <p className='font-semibold'>{item?.product?.title}</p>
+                    <p className='opacity-70'>Size:{item?.size},white</p>
+                    <p className='opacity-70 mt-2'>Seller:{item?.product?.brand}</p>
                     <div className='flex space-x-5 items-center text-gray-900 pt-6'>
-                        <p className='font-semibold'>₹199</p>
-                        <p className='line-through opacity-50'>₹1999</p>
-                        <p className='text-green-600 font-semibold'>5% OFF</p>
+                        <p className='font-semibold'>₹{item?.price}</p>
+                        <p className='line-through opacity-50'>₹{item?.discountedPrice}</p>
+                        <p className='text-green-600 font-semibold'>{item?.discountPersent}% OFF</p>
                     </div>
                 </div>
 
@@ -27,9 +36,9 @@ const CartItem = () => {
 
             </div>
             <div className='lg:flex items-center lg:space-x-10 pt-4 ml-[160px]'>
-                <button>
+                <Button onClick={handelRemoveCartItem}  >
                     remove
-                </button>
+                </Button>
             </div>
 
         </div>
