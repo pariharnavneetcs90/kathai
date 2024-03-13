@@ -1,0 +1,41 @@
+
+import './App.css';
+import Nagivation from './customer/components/Navbar/Nagivation';
+import { HomePage } from './customer/pages/HomePage/HomePage';
+import Footer from './customer/components/Footer/Footer';
+import Product from './customer/components/Product/Product';
+import ProductDetails from './customer/components/ProductDetails/ProductDetails';
+import CartEcom from './customer/components/CartEcom/Cart';
+import Checkout from './customer/components/Checkout/Checkout';
+import { Route, Routes } from 'react-router-dom';
+import CustomerRouters from './customer/Routers/CustomerRouters';
+
+
+
+
+
+
+function App() {
+  return (
+    <div>
+
+      <Routes>
+        <Route path='/*' element={<CustomerRouters />}></Route>
+      </Routes>
+
+
+      <div>
+        {/* <Product /> */}
+        {/* https://tailwindui.com/components/ecommerce/components/product-overviews */}
+        {/* <ProductDetails /> */}
+        {/* <CartEcom /> */}
+        {/* <Checkout /> */}
+      </div>
+
+    </div>
+
+  );
+}
+
+export default App;
+
