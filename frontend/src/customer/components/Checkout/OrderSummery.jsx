@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AdressCard from '../AdressCard/AdressCard'
 import CartItem from '../CartEcom/CartItem'
+import { useDispatch } from 'react-redux'
+import { getOrderById } from '../../../State/Order/Action'
+import { useLocation } from 'react-router-dom'
 
 const OrderSummery = () => {
+    // dispatch = useDispatch();
+    // location = useLocation();
+    // const searchParam = new URLSearchParams(location.search);
+    // const orderId = searchParams.get("order_id")
+    // useEffect(() => {
+    //     dispatch(getOrderById(orderId))
+    // }, [orderId])
     return (
         <div>
             <div className='p-5 shadow-lg rounded-s-md border'>

@@ -6,7 +6,7 @@ const HomeSectionCard = ({ product }) => {
 
     const navigate = useNavigate();
     return (
-        <div onClick={() => navigate('/product-detail/' + product.title.replaceAll(" ", "-"))} >
+        <div onClick={() => navigate('/product-detail/' + product._id)} >
 
             {/* rounded-lg matlab (	border-radius: 0.5rem; 8px )*/}
             <div className='cursor-pointer flex  flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 '>

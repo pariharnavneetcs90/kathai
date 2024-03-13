@@ -2,9 +2,11 @@ import { Button, Grid, TextField } from '@mui/material'
 import React from 'react'
 import AdressCard from '../AdressCard/AdressCard'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { createOrder } from './../../../State/Order/Action';
 
 const DelevryAdressForm = () => {
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     //ye jab click kar ke submit ho uski function ho vo likha hai
@@ -23,16 +25,18 @@ const DelevryAdressForm = () => {
             zipCode: data.get("zip"),
             mobile: data.get("phoneNumber")
         }
-
         console.log("address", address)
+        const orderData = { address, navigate }
+        dispatch(createOrder(orderData))
+        // navigate('/checkout?step=3')
     }
 
     return (
         <div>
 
-            <Grid container spacing={4}>
+            <Grid container spacing={4} alignItems="center" justifyContent="center">
 
-                <Grid xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-scroll'>
+                {/* <Grid xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-scroll'>
 
                     <div className='p-5 py-7 border-b cursor-pointer'>
                         <AdressCard />
@@ -40,9 +44,9 @@ const DelevryAdressForm = () => {
                             Delever here
                         </Button>
                     </div>
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={12} lg={7}>
+                <Grid alignItems="center" justifyContent="center" item xs={12} lg={7}>
 
                     <div className="border rounded-s-md shadow-md p-5">
 
@@ -150,9 +154,9 @@ const DelevryAdressForm = () => {
                                 </Grid>
 
                                 <Grid item xs={12} sm={6}>
+                                    {/* <input type="submit" value="deliver here" /> */}
 
-
-                                    <Button sx={{ py: 1.5, mt: 2, bgcolor: "RGB(145 85 253)" }} onClick={() => navigate('/checkout?step=3')} size='large' variant='container' type='submit'>
+                                    <Button sx={{ py: 1.5, mt: 2, bgcolor: "RGB(145 85 253)" }} size='large' variant='container' type='submit'>
                                         Delever here
                                     </Button>
 

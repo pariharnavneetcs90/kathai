@@ -9,7 +9,7 @@ const Product = () => {
 
     const param = useParams();
     const dispatch = useDispatch();
-    const { product } = useSelector(store => store)
+    const { products } = useSelector(store => store)
 
     const decodedQueryString = decodeURIComponent(location.search);
     const searchParamms = new URLSearchParams(decodedQueryString);
@@ -48,7 +48,7 @@ const Product = () => {
 
     return (
         <div className='flex flex-wrap justify-center bg-white py-5'>
-            {product.products?.content.map((item) => <ProductCard product={item} />)}
+            {products.products && products.products?.content.map((item) => <ProductCard product={item} />)}
             {/* {mens_kurta.map((item) => <ProductCard product={item} />)} */}
         </div>
     )

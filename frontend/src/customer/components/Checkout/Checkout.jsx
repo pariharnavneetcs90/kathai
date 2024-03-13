@@ -10,8 +10,8 @@ import DelevryAdressForm from './DelevryAdressForm';
 import OrderSummery from './OrderSummery';
 
 
-const steps = ['Login', 'Delevery Adress', 'Order summery', 'Payment'];
-
+// const steps = ['Login', 'Delevery Adress', 'Order summery', 'Payment'];
+const steps = ['Login', 'Delevery Adress'];
 export default function Checkout() {
     const [activeStep, setActiveStep] = React.useState(0);
     //upar usl me har step aane ke liye matlab second step hai to =?
@@ -75,7 +75,7 @@ export default function Checkout() {
                         </Box>
 
                         <div className='mt-10'>
-                            {step == 2 ? <DelevryAdressForm /> : <OrderSummery />}
+                            {step == 2 ? <DelevryAdressForm /> : null}
                         </div>
                     </React.Fragment>
                 )}
